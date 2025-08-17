@@ -1,0 +1,15 @@
+services:
+  fragrag-ui:
+    image: krishnarajt/fragrag-ui:latest
+    container_name: fragrag-ui
+    ports:
+      - "4041:80"
+    restart: unless-stopped
+    networks:
+      - fragrag-net
+      - reverse_proxy_net
+networks:
+  fragrag-net:
+    driver: bridge
+  reverse_proxy_net:
+    external: true
